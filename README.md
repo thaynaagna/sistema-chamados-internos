@@ -116,7 +116,7 @@ Em um **novo terminal** (mantenha o anterior aberto):
 npm run dev
 ```
 
-Acesse **http://localhost:8000**.
+Acesse Acesse **http://localhost:8000/chamados**.
 
 ---
 
