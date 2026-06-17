@@ -1,59 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Controle de Chamados Internos 🎫
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📌 Sobre o projeto
 
-## About Laravel
+Sistema web para gerenciamento de chamados internos, permitindo abertura, atribuição automática e acompanhamento de solicitações dentro de um ambiente corporativo.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+O sistema foi desenvolvido como teste técnico, com foco em boas práticas de desenvolvimento full stack e em uma decisão de arquitetura específica: distribuir os chamados de forma equilibrada entre o time de suporte, evitando que algumas pessoas fiquem sobrecarregadas enquanto outras ficam sem tarefas.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Tecnologias utilizadas
 
-## Learning Laravel
+- **Laravel 11 (PHP 8.2+)**
+- **Vue.js 3 (Composition API)**
+- **Inertia.js**
+- **Tailwind CSS**
+- **Vite**
+- **SQLite** (banco padrão do projeto, sem necessidade de servidor externo)
+- **Laravel Breeze** (autenticação)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## ⚙️ Funcionalidades
 
-## Laravel Sponsors
+- Abertura, listagem e visualização detalhada de chamados
+- **Atribuição automática de responsável**, com base na carga de trabalho atual de cada pessoa do suporte (ponderada por prioridade do chamado)
+- Reatribuição manual de responsável, quando necessário
+- Atualização de status (aberto → em andamento → resolvido → fechado)
+- Histórico completo de cada chamado (quem abriu, quem mudou o status, quando)
+- Painel de distribuição de carga, mostrando visualmente quem está mais ou menos sobrecarregado
+- Filtros por status, prioridade, categoria e responsável
+- Controle de acesso por perfil (solicitante vê só os próprios chamados; suporte/admin vê todos)
+- Interface dinâmica (SPA via Inertia.js)
+- Validação de dados no back-end
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 📁 Estrutura do projeto
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- `app/Models/` → Models (User, Chamado, Categoria, ChamadoHistorico)
+- `app/Services/AtribuicaoService.php` → lógica de distribuição automática de chamados
+- `app/Http/Controllers/` → Controllers (ChamadoController, DashboardController)
+- `resources/js/Pages/` → telas Vue (Chamados e Dashboard de distribuição)
+- `routes/` → rotas da aplicação
+- `database/migrations/` e `database/seeders/` → estrutura das tabelas e dados de teste
+- `config/` → configurações do Laravel
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🛠️ Como executar o projeto localmente
 
-## Code of Conduct
+### Pré-requisitos
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **PHP 8.2 ou superior** (versões anteriores não são compatíveis com o Laravel 11 / Breeze atual)
+- **Composer**
+- **Node.js 18+** e **npm**
+- Extensão PHP `zip` habilitada (necessária para o Composer instalar as dependências)
 
-## Security Vulnerabilities
+> 💡 Se ao rodar `composer install` aparecer um erro de versão de PHP, confirme sua versão com `php -v`. Se for menor que 8.2, será necessário instalar uma versão mais recente antes de continuar.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 1. Clonar o repositório
 
-## License
+```bash
+git clone https://github.com/thaynaagna/sistema-chamados-internos.git
+cd sistema-chamados-internos
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 2. Instalar as dependências do Backend (PHP)
+
+```bash
+composer install
+```
+
+### 3. Instalar as dependências do Frontend (Node.js)
+
+```bash
+npm install
+```
+
+### 4. Configurar o arquivo de ambiente
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 5. Configurar o Banco de Dados (SQLite)
+
+O projeto já vem configurado para usar SQLite por padrão — não é necessário instalar ou configurar nenhum servidor de banco de dados separado. Basta criar o arquivo do banco:
+
+```bash
+touch database/database.sqlite
+```
+
+> No Windows (PowerShell), use: `New-Item -ItemType File -Path "database\database.sqlite"`
+
+### 6. Executar Migrations e Seeders
+
+```bash
+php artisan migrate --seed
+```
+
+> O `--seed` é obrigatório: ele cria os usuários de teste (admin, 3 pessoas de suporte e 2 solicitantes), sem os quais a atribuição automática não tem para quem atribuir.
+
+### 7. Rodar o Servidor de Backend
+
+```bash
+php artisan serve
+```
+
+### 8. Rodar o Servidor de Frontend
+
+Em um **novo terminal** (mantenha o anterior aberto):
+
+```bash
+npm run dev
+```
+
+Acesse **http://localhost:8000**.
+
+---
+
+## 👥 Usuários de teste
+
+Senha de todos: `password`
+
+| Perfil | E-mail |
+|---|---|
+| Admin | admin@empresa.com |
+| Suporte | carlos@empresa.com |
+| Suporte | fernanda@empresa.com |
+| Suporte | rafael@empresa.com |
+| Solicitante | juliana@empresa.com |
+| Solicitante | marcos@empresa.com |
+
+---
+
+## 🧠 Decisão de arquitetura: atribuição automática
+
+Em vez de atribuir pelo critério simples de "quem tem menos chamados", o sistema calcula uma **carga ponderada por prioridade**: cada chamado ativo (status `aberto` ou `em_andamento`) soma à carga da pessoa responsável, com peso maior para prioridades mais altas (alta = 3, média = 2, baixa = 1). O próximo chamado aberto vai automaticamente para quem tiver a menor carga total no momento.
+
+Essa lógica está isolada em `app/Services/AtribuicaoService.php`, sem nenhuma regra de negócio espalhada pelos controllers.
+
+---
+
+## 📚 Bibliotecas externas
+
+- **Laravel Breeze**: autenticação (login, registro, perfis de usuário)
+- **Inertia.js**: ponte entre Laravel e Vue, sem necessidade de API REST separada
+
+---
+
+## 📝 Observações
+
+- Utiliza Inertia.js para uma experiência de SPA sem a complexidade de uma API separada
+- Segue o padrão MVC do Laravel, com a regra de distribuição isolada em uma camada de Service
+- Não há dependência de serviços externos (sem fila, sem SMTP real) — tudo roda localmente
+
+---
+
+## 👨‍💻 Autora
+
+Desenvolvido por **Thayná Ágna**
+
+
+
+
