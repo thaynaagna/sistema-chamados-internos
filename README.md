@@ -116,13 +116,13 @@ Em um **novo terminal** (mantenha o anterior aberto):
 npm run dev
 ```
 
-Acesse [Acesse a aplicação](https://sistema-chamados-internos-production-30ef.up.railway.app/)
+## Acesse [Acesse a aplicação](https://sistema-chamados-internos-production-30ef.up.railway.app/)
 
 ---
 
 ## 👥 Credenciais de demonstração
 
-*Senha de todos: `password`*
+## Senha de todos: `password`
 
 | Perfil | E-mail |
 |---|---|
