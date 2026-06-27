@@ -117,6 +117,9 @@ npm run dev
 ```
 
 ## Acesse **Aplicação:** https://sistema-chamados-internos-production-30ef.up.railway.app/
+
+## Após realizar o login, acesse a lista de chamados em:
+https://sistema-chamados-internos-production-30ef.up.railway.app/chamados
 ---
 
 ## 👥 Credenciais de demonstração
