@@ -116,7 +116,7 @@ Em um **novo terminal** (mantenha o anterior aberto):
 npm run dev
 ```
 
-Acesse [lista de chamados](https://sistema-chamados-internos-production-30ef.up.railway.app/chamados)
+Acesse [Aplicativo](https://sistema-chamados-internos-production-30ef.up.railway.app/)
 
 ---
 
