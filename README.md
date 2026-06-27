@@ -125,6 +125,7 @@ npm run dev
 https://sistema-chamados-internos-production-30ef.up.railway.app/chamados
 ---
 
+
 ## 👤 Utilize qualquer uma das credenciais abaixo (senha: `password`).
 
 
