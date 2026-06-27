@@ -116,15 +116,17 @@ Em um **novo terminal** (mantenha o anterior aberto):
 npm run dev
 ```
 
-## Acesse **Aplicação:** https://sistema-chamados-internos-production-30ef.up.railway.app/
+## 🚀 Teste a aplicação
 
-## Após realizar o login, acesse a lista de chamados em:
+🔗 Aplicação:
+https://sistema-chamados-internos-production-30ef.up.railway.app
+
+📋 Lista de chamados:
 https://sistema-chamados-internos-production-30ef.up.railway.app/chamados
 ---
 
-## 👥 Credenciais de demonstração
+## 👤 Utilize qualquer uma das credenciais abaixo (senha: `password`).
 
-## Senha de todos: `password`
 
 | Perfil | E-mail |
 |---|---|
